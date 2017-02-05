@@ -1,5 +1,7 @@
 package com.eyereturn.model;
 
+import org.hibernate.validator.constraints.Email;
+
 /**
  * Created by Chemcee. M. C on 02-02-2017.
  */

@@ -1,5 +1,6 @@
 package com.eyereturn.service;
 
+import com.eyereturn.domain.AverageAge;
 import com.eyereturn.exceptions.DuplicateEmailException;
 import com.eyereturn.model.UserModel;
 
@@ -14,4 +15,6 @@ public interface UserService {
     UserModel addNewUser(UserModel userModel);
     boolean getUserByEmail(String email) throws DuplicateEmailException;
     boolean deleteUser(Long id);
+    boolean isUserExisting(Long id);
+    int findAverageAge(AverageAge averageAge);
 }

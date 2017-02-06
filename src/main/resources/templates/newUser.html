@@ -41,6 +41,62 @@
 </nav>
 <br/>
 <br/>
+<div class="container" style="margin-top: 5%">
 
+</div>
+    <form id="userform">
+        <div class="form-group">
+            <h2 class="form-signin-heading">Create New User</h2>
+            <input type="text" id="firstName" class="form-control" placeholder="First Name" required="true"/>
+            <input type="text" id="lastName" class="form-control" placeholder="Last Name" required="true" />
+            <input type="number" id="phoneNumber" class="form-control" th:size="10" th:maxlength="10" placeholder="Phone Number" required="true" />
+            <input type="email" id="email" class="form-control" placeholder="Email address" required="true" />
+            <input type="text" id="dateOfBirth" class="form-control" placeholder="Date of birth" required="true" />
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">Add User</button>
+        </div>
+    </form>
+
+
+<script type="text/javascript">
+
+    $("#submit").on('click', function(){
+
+        $.ajax({
+            url: '../users/new',
+            type : "POST",
+            dataType : 'json', // data type
+            data : $("#userform").serialize(),
+            success : function(result) {
+
+                console.log(result);
+            },
+            error: function(xhr, resp, text) {
+                console.log(xhr, resp, text);
+            }
+        })
+    });
+    /*console.log("inside function");;
+    $("#userform").submit(function(event) {
+
+        event.preventDefault();
+        var url = "../users/new";
+        var posting = $.post( url, { firstName: $('#firstName').val(), lastName: $('#lastName').val() ,
+            phoneNumber: $('#phoneNumber').val(), email: $('#email').val(), dateOfBirth: $('#phoneNumber').val()} );
+        posting.done(function( data ) {
+            alert('success');
+        });
+        /!*$.ajax({
+         type: "POST",
+         url: url,
+         dataType: "json",
+         data: $("#idForm").serialize(),
+         success: function(data)
+         {
+         console.log(data.message);
+         }
+         });*!/
+    });*/
+</script>
 </body>
 </html>

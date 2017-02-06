@@ -18,4 +18,16 @@ public class IndexController {
     {
         return "index";
     }
+
+    @RequestMapping(value = "/allusers",method = RequestMethod.GET)
+    public String returnAllUsers(Model model)
+    {
+        return "allUsers";
+    }
+
+    @RequestMapping(value = "/newuser",method = RequestMethod.GET)
+    public String addNewUser(Model model)
+    {
+        return "newUser";
+    }
 }
